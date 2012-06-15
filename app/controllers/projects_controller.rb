@@ -36,6 +36,10 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
 
+    if @project.save
+      flash[:notice] = "Project was successfully created."
+    end
+
     respond_with @project
   end
 
